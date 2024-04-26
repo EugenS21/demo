@@ -1,23 +1,32 @@
 package com.skeleton.ui.core.storage;
 
+import io.cucumber.spring.ScenarioScope;
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+@Service
+@ScenarioScope
 public class Storage {
-
-    public static Storage storageInstance;
-
-    public static Storage getStorage() {
-        if (Objects.isNull(storageInstance)) {
-            storageInstance = new Storage();
-        }
-        return storageInstance;
-    }
+//
+//    public static Storage storageInstance;
+//
+//    public static Storage getStorage() {
+//        if (Objects.isNull(storageInstance)) {
+//            storageInstance = new Storage();
+//        }
+//        return storageInstance;
+//    }
 
     Map<StorageKey, Object> storage;
 
-    private Storage() {
+//    private Storage() {
+//        storage = new HashMap<>();
+//    }
+
+    public Storage() {
         storage = new HashMap<>();
     }
 

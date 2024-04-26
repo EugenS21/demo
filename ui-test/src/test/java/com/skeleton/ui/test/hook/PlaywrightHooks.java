@@ -12,7 +12,12 @@ import com.skeleton.ui.core.storage.Storage;
 import com.skeleton.ui.core.storage.StorageKey;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.spring.ScenarioScope;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@ScenarioScope
 public class PlaywrightHooks {
 
     PlaywrightService playwrightService;
@@ -22,8 +27,9 @@ public class PlaywrightHooks {
 
     Storage storage;
 
-    public PlaywrightHooks() {
-        this.storage = Storage.getStorage();
+    @Autowired
+    public PlaywrightHooks(Storage storage) {
+        this.storage = storage;
         this.playwrightService = new PlaywrightService();
         this.browserService = new BrowserService();
         this.browserContextService = new BrowserContextService();
