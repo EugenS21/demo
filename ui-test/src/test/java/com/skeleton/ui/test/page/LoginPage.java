@@ -5,14 +5,19 @@ import com.microsoft.playwright.options.AriaRole;
 import com.skeleton.ui.core.storage.Storage;
 import com.skeleton.ui.core.storage.StorageKey;
 import com.skeleton.ui.test.model.LoginModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.nio.file.Paths;
 
+@Component
 public class LoginPage {
 
     Storage storage;
-    public LoginPage() {
-        this.storage = Storage.getStorage();
+
+    @Autowired
+    public LoginPage(Storage storage) {
+        this.storage = storage;
     }
 
     public boolean login(LoginModel loginModel) {
